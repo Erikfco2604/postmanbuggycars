@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "c89f7261-5a58-40c5-a5bb-e59966320e24",
+		"name": "APIS Buggy Cars Ratting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31712455",
+		"_collection_link": "https://winter-desert-92628.postman.co/workspace/BuggyCars-APIS~9a0994dc-0b1f-45e4-84ea-a18dcf5782c7/collection/31712455-c89f7261-5a58-40c5-a5bb-e59966320e24?action=share&source=collection_link&creator=31712455"
+	},
+	"item": [
+		{
+			"name": "API Pagina de Inicio",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Popular Model",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Lamborgini",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el resultado sea 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta sea en 2500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que la respuesta incluya Nombre del Automovil\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que la respuesta contenga imagen del Automovil\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"image\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que la respuesta incluya Descripcion\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que la respuesta incluya Modelos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"models\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que la respuesta incluya Modelos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"models\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga una ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un nombre\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que tenga una imagen\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"image\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un Make\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"make\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un Make ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"makeId\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga Numero de Votos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"votes\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que aparexca el Ranking\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"rank\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que refleje el Volumen del Motor\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"engineVol\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga Comentarios\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"comments\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://k51qryqov3.execute-api.ap-southeast-2.amazonaws.com/prod/makes/ckl2phsabijs71623vk0?modelsPage=1\n",
+					"protocol": "https",
+					"host": [
+						"k51qryqov3",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"makes",
+						"ckl2phsabijs71623vk0"
+					],
+					"query": [
+						{
+							"key": "modelsPage",
+							"value": "1\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Overall Rating",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el resultado sea 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta sea en 2500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2500);\r",
+							"});\r",
+							"\r",
+							" pm.test(\"Validar que aparezca el Total de Paginas\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"totalPages\");\r",
+							"});\r",
+							"\r",
+							" pm.test(\"Validar que aparezca el Modelo del Automovil\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"models\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga una ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un nombre\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que tenga una imagen\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"image\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un Make\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"make\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un Make ID\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"makeId\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga un Make Imagen\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"makeImage\");\r",
+							"});\r",
+							"   \r",
+							"       pm.test(\"Validar que tenga Numero de Votos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"votes\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que aparexca el Ranking\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"rank\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que refleje el Volumen del Motor\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"engineVol\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Validar que tenga Comentarios\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"comments\");\r",
+							"});\r",
+							"\r",
+							"     pm.test(\"Validar que tenga el Total de Comentarios\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"totalComments\");\r",
+							"});\r",
+							"\r",
+							"   "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://k51qryqov3.execute-api.ap-southeast-2.amazonaws.com/prod/models?page=1",
+					"protocol": "https",
+					"host": [
+						"k51qryqov3",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"models"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Registrar Usuario",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Inicio de Sesion",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Facebook",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Twitter",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
